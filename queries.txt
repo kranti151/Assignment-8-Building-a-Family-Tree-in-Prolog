@@ -1,0 +1,183 @@
+% ============================================================================
+% Sample Queries and Expected Output
+% ============================================================================
+% These queries demonstrate the functionality of the family tree program.
+% To run these queries, load the family_tree.pl file in Prolog and execute them.
+
+% ----------------------------------------------------------------------------
+% BASIC RELATIONSHIP QUERIES
+% ----------------------------------------------------------------------------
+
+% Query 1: Check if john is a parent of mary
+% Query: parent(john, mary).
+% Expected Output: true
+
+% Query 2: Find all children of john
+% Query: child(Child, john).
+% Expected Output: 
+%   Child = mary
+%   Child = peter
+%   Child = sarah
+
+% Query 3: Find all children of john (using helper)
+% Query: children_of(john, Children).
+% Expected Output: Children = [mary, peter, sarah]
+
+% Query 4: Find who is the father of david
+% Query: father(Father, david).
+% Expected Output: Father = john
+
+% Query 5: Find who is the mother of david
+% Query: mother(Mother, david).
+% Expected Output: Mother = mary
+
+% ----------------------------------------------------------------------------
+% GRANDPARENT QUERIES
+% ----------------------------------------------------------------------------
+
+% Query 6: Find all grandparents of david
+% Query: grandparent(Grandparent, david).
+% Expected Output:
+%   Grandparent = john
+%   Grandparent = mary
+
+% Query 7: Find all grandchildren of john
+% Query: grandparent(john, Grandchild).
+% Expected Output:
+%   Grandchild = david
+%   Grandchild = emily
+%   Grandchild = james
+%   Grandchild = lisa
+%   Grandchild = robert
+%   Grandchild = anna
+
+% Query 8: Check if george is a grandfather of david
+% Query: grandfather(george, david).
+% Expected Output: true
+
+% ----------------------------------------------------------------------------
+% SIBLING QUERIES
+% ----------------------------------------------------------------------------
+
+% Query 9: Find all siblings of mary
+% Query: sibling(mary, Sibling).
+% Expected Output:
+%   Sibling = peter
+%   Sibling = sarah
+
+% Query 10: Find all siblings of mary (using helper)
+% Query: siblings_of(mary, Siblings).
+% Expected Output: Siblings = [peter, sarah]
+
+% Query 11: Find all brothers of mary
+% Query: brother(Brother, mary).
+% Expected Output: Brother = peter
+
+% Query 12: Find all sisters of peter
+% Query: sister(Sister, peter).
+% Expected Output:
+%   Sister = mary
+%   Sister = sarah
+
+% Query 13: Check if mary and peter are siblings
+% Query: sibling(mary, peter).
+% Expected Output: true
+
+% ----------------------------------------------------------------------------
+% COUSIN QUERIES
+% ----------------------------------------------------------------------------
+
+% Query 14: Find all cousins of david
+% Query: cousin(david, Cousin).
+% Expected Output:
+%   Cousin = james
+%   Cousin = lisa
+%   Cousin = robert
+%   Cousin = anna
+
+% Query 15: Find all cousins of david (using helper)
+% Query: cousins_of(david, Cousins).
+% Expected Output: Cousins = [james, lisa, robert, anna]
+
+% Query 16: Check if david and james are cousins
+% Query: cousin(david, james).
+% Expected Output: true
+
+% Query 17: Check if david and emily are cousins (they are siblings, not cousins)
+% Query: cousin(david, emily).
+% Expected Output: false
+
+% ----------------------------------------------------------------------------
+% RECURSIVE RELATIONSHIP QUERIES
+% ----------------------------------------------------------------------------
+
+% Query 18: Find all descendants of john
+% Query: descendant(Descendant, john).
+% Expected Output:
+%   Descendant = mary
+%   Descendant = peter
+%   Descendant = sarah
+%   Descendant = david
+%   Descendant = emily
+%   Descendant = james
+%   Descendant = lisa
+%   Descendant = robert
+%   Descendant = anna
+%   Descendant = michael
+%   Descendant = sophia
+%   Descendant = olivia
+%   Descendant = william
+
+% Query 19: Find all descendants of john (using helper)
+% Query: descendants_of(john, Descendants).
+% Expected Output: Descendants = [mary, peter, sarah, david, emily, james, lisa, robert, anna, michael, sophia, olivia, william]
+
+% Query 20: Find all ancestors of michael
+% Query: ancestor(Ancestor, michael).
+% Expected Output:
+%   Ancestor = david
+%   Ancestor = mary
+%   Ancestor = john
+
+% Query 21: Find all ancestors of michael (using helper)
+% Query: ancestors_of(michael, Ancestors).
+% Expected Output: Ancestors = [david, mary, john]
+
+% Query 22: Check if john is an ancestor of michael
+% Query: ancestor(john, michael).
+% Expected Output: true
+
+% ----------------------------------------------------------------------------
+% ADDITIONAL RELATIONSHIP QUERIES
+% ----------------------------------------------------------------------------
+
+% Query 23: Find all uncles of david
+% Query: uncle(Uncle, david).
+% Expected Output:
+%   Uncle = peter
+%   Uncle = sarah (if sarah is considered, though typically uncle is male)
+
+% Query 24: Find all aunts of david
+% Query: aunt(Aunt, david).
+% Expected Output:
+%   Aunt = sarah
+
+% Query 25: Find all grandchildren of george
+% Query: grandparent(george, Grandchild).
+% Expected Output:
+%   Grandchild = mary
+%   Grandchild = peter
+%   Grandchild = sarah
+%   Grandchild = charles
+%   Grandchild = diana
+
+% Query 26: Find all sons of john
+% Query: son(Son, john).
+% Expected Output: Son = peter
+
+% Query 27: Find all daughters of john
+% Query: daughter(Daughter, john).
+% Expected Output:
+%   Daughter = mary
+%   Daughter = sarah
+
